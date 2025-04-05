@@ -2,7 +2,7 @@
 
 ### 📁 Lab: Cross-User Access Denial (UserA Denied Access to jc's S3 Bucket)
 
-#### 👣 Steps Performed:
+####  Steps Performed:
 
 1. **Created 2 IAM Users**:  
    - `UserA`  

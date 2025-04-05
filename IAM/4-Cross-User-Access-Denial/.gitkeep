@@ -1,1 +1,38 @@
- 
+Sure! Here's the **step-by-step summary** of what you did in the **Cross-User Access Denial Lab** using AWS IAM and CLI:
+
+---
+
+### 📁 Lab: Cross-User Access Denial (UserA Denied Access to jc's S3 Bucket)
+
+#### 👣 Steps Performed:
+
+1. **Created 2 IAM Users**:  
+   - `UserA`  
+   - `jc`  
+
+2. **Created an S3 Bucket**:  
+   - Bucket name: `jc11`  
+   - Created by user `jc`
+
+3. **Uploaded a File to S3 Bucket**:  
+   - File: `testfile.txt` with content: `"hello, aws!"`  
+   - Uploaded via `jc` account
+
+4. **Tested Cross-Access by Switching to UserA**:
+   - Used CLI with `UserA` credentials  
+   - Ran command:  
+     ```bash
+     aws s3 cp s3://jc11/testfile.txt testfile_downloaded.txt
+     ```
+   - ✅ Got **Access Denied** (expected)
+
+5. **Why Access Denied?**  
+   - No S3 bucket policy allowed UserA  
+   - IAM policy did not permit UserA to access `jc11`
+
+6. **Conclusion**:  
+   - By default, **S3 buckets are private**, and IAM users can't access each other's resources unless explicitly granted.
+
+---
+
+Let me know if you'd like to paste this into `.gitkeep`, or want me to give the next lab summary. 

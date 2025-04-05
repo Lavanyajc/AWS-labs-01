@@ -7,6 +7,21 @@ Policy Name: IAM-Boundary-EC2
 Action: ec2:DescribeInstances  
 Effect: Allow
 
+##json
+
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowEC2ActionsOnly",
+      "Effect": "Allow",
+      "Action": "ec2:*",
+      "Resource": "*"
+    }
+  ]
+}
+
+
 ### 2. Attached Permissions Boundary to `practice-user`:
 aws iam put-user-permissions-boundary --user-name practice-user --permissions-boundary arn:aws:iam::account-id:policy/IAM-Boundary-EC2
 

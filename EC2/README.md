@@ -2,6 +2,7 @@
 
 This section includes hands-on labs demonstrating how to manage EC2 instances and IAM integrations using AWS Console and CLI.
 
+
 ## Labs Completed
 
 1. Create and Connect to EC2 Instance  

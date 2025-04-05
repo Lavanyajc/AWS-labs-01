@@ -1,0 +1,67 @@
+# IAM & EC2 Lab – Policy Attachment Guidelines
+
+
+1. Create Users & Groups
+   - ❌ No policies attached initially
+
+2. Attach & Detach Policies
+   - ✅ Attach policies like:
+     - AmazonS3FullAccess
+     - AmazonEC2ReadOnlyAccess
+   - ✅ Detach and test again
+
+3. Permission Boundary
+   - ✅ Attach a custom boundary policy with "Deny" or limited "Allow"
+
+4. MFA Setup
+   - ❌ No extra policies (done via Console)
+
+5. Cross-User Access Denial
+   - ✅ Attach inline policy to deny access to other users
+
+6. Describe EC2 (CLI)
+   - ✅ AmazonEC2ReadOnlyAccess
+
+7. Block EC2 with Deny
+   - ✅ Add explicit Deny policy to override any existing Allow
+
+8. Test EC2 Actions with IAM
+   - ✅ Use mix of Allow and Deny policies
+
+9. S3 Upload/Download (CLI)
+   - ✅ AmazonS3FullAccess (or custom with "s3:PutObject", "s3:GetObject")
+
+
+###so what are the best practices that we have  used in these projects or labs###
+## ✅ IAM Best Practices Used
+
+- ✅ Created IAM **users** and assigned them to **groups** for role-based access.
+- ✅ Attached **policies to groups**, not individual users.
+- ✅ Practiced **least privilege** by testing permission boundaries to restrict excess access.
+- ✅ Used **inline policies** and then **detached** them for cleanup.
+- ✅ Denied access intentionally using **explicit deny policies** to test secure configurations.
+- ✅ Tested **cross-user access restriction** by simulating UserA and UserB permissions.
+- ✅ Verified access via **AWS CLI** to ensure policies are working as intended.
+- ✅ Configured **MFA** for IAM user login to improve account security.
+
+---
+
+## 💻 EC2 Best Practices Used
+
+- ✅ Launched EC2 instances using **console** and connected using **CLI** for better control.
+- ✅ Attached **IAM roles** to EC2 instances instead of using access keys.
+- ✅ Described instances using **CLI** to manage and inspect resources.
+- ✅ Applied **deny policies** to restrict EC2 actions from unauthorized users.
+- ✅ Verified **least privilege** by testing user-specific access to EC2 resources.
+- ✅ Managed EC2 access using **tags**, roles, and permissions.
+
+---
+
+## 📦 S3 Best Practices Used
+
+- ✅ Uploaded and downloaded files via **CLI** to simulate real-world automation scenarios.
+- ✅ Verified CLI access with IAM user policies to ensure **controlled access**.
+- ✅ Ensured only **authorized users** could access S3 buckets/objects.
+- ✅ Followed **least privilege** principle in S3 permissions using IAM policies.
+
+ 

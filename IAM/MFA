@@ -1,32 +1,62 @@
-# ✅ IAM Lab 4: Enable Multi-Factor Authentication (MFA) for an IAM User //can make it for any iam user
 
-## 📝 Objective:
-To enable MFA for `practice-user` using AWS Console and verify MFA status.
+✅ Lab: Configure and Test MFA (Multi-Factor Authentication)
 
----
+🔸 Goal:
+Enable MFA for an IAM user and test CLI behavior with and without MFA.
 
-## 🧪 Steps Performed (Mostly Console):
+✅ Steps Performed:
 
-### 1. ✅ Logged into AWS Console → IAM Dashboard.
+1. Created IAM User (UserMFA)
+- Created via AWS Console with programmatic access.
+- Downloaded access and secret keys.
+- No MFA initially enabled.
 
-### 2. ✅ Navigated to:
-IAM → Users → Selected `practice-user`
+2. Tested CLI Access Before Enabling MFA
+- Configured AWS CLI using:
+  aws configure
+- Verified access with:
+  aws s3 ls
+- ✅ Output: Successfully listed S3 buckets (no MFA restrictions yet).
 
-### 3. ✅ Clicked on the **Security credentials** tab.
+3. Enabled Virtual MFA
+- Went to IAM → UserMFA → Security Credentials tab.
+- Assigned virtual MFA using Google Authenticator.
+- Scanned QR code and entered two consecutive OTPs.
 
-### 4. ✅ Under **Assigned MFA device** → Clicked **"Manage"**
+4. Created and Attached Policy to Enforce MFA
+- Created custom IAM policy named `DenyWithoutMFA`:
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "BlockActionsWithoutMFA",
+      "Effect": "Deny",
+      "Action": "*",
+      "Resource": "*",
+      "Condition": {
+        "BoolIfExists": {
+          "aws:MultiFactorAuthPresent": "false"
+        }
+      }
+    }
+  ]
+}
+```
+- Attached this policy to UserMFA via the AWS Console.
 
-- Chose **Virtual MFA device**
-- Used **Google Authenticator** or **Authy** app on mobile.
-- Scanned the QR code shown.
-- Entered 2 consecutive MFA codes displayed in the app.
+5. Tested CLI Access After Enabling MFA
+- Ran:
+  aws s3 ls
+- ❌ Result: Access denied as MFA is required and not passed in CLI.
 
-✅ MFA device successfully assigned.
+6. Console Login Test
+- Logged into AWS Console as UserMFA.
+- Prompted for and entered MFA code from Google Authenticator.
+- ✅ Successful login.
 
----
+🎯 Outcome:
+MFA was enforced via IAM policy and tested from both AWS Console and AWS CLI. Verified that CLI actions were denied when MFA was not present.
+```
 
-## 🔍 (Optional) Verified MFA using CLI:
 
-Command:
-```bash
-aws iam list-mfa-devices --user-name practice-user

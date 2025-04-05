@@ -1,0 +1,32 @@
+# ✅ IAM Lab 4: Enable Multi-Factor Authentication (MFA) for an IAM User //can make it for any iam user
+
+## 📝 Objective:
+To enable MFA for `practice-user` using AWS Console and verify MFA status.
+
+---
+
+## 🧪 Steps Performed (Mostly Console):
+
+### 1. ✅ Logged into AWS Console → IAM Dashboard.
+
+### 2. ✅ Navigated to:
+IAM → Users → Selected `practice-user`
+
+### 3. ✅ Clicked on the **Security credentials** tab.
+
+### 4. ✅ Under **Assigned MFA device** → Clicked **"Manage"**
+
+- Chose **Virtual MFA device**
+- Used **Google Authenticator** or **Authy** app on mobile.
+- Scanned the QR code shown.
+- Entered 2 consecutive MFA codes displayed in the app.
+
+✅ MFA device successfully assigned.
+
+---
+
+## 🔍 (Optional) Verified MFA using CLI:
+
+Command:
+```bash
+aws iam list-mfa-devices --user-name practice-user

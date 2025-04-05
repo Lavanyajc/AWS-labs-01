@@ -1,1 +1,33 @@
  
+✅ Lab: Attach and Detach IAM Policies (Console + CLI)
+
+🔸 Goal:
+To test how attaching and detaching IAM policies affects an IAM user's ability to perform actions using the AWS CLI.
+
+✅ Steps Performed:
+
+1. Created IAM User (UserA)
+- Used AWS Console to create 'UserA'.
+- Enabled Programmatic access.
+- Downloaded access key & secret credentials.
+
+2. Tested Without Permissions
+- Configured AWS CLI with UserA credentials:
+    aws configure
+- Ran the command:
+    aws ec2 describe-instances
+- ❌ Got 'AccessDenied' error because no policy was attached.
+
+3. Attached ReadOnly Policy
+- Went to IAM Console > UserA > Permissions.
+- Attached policy: AmazonEC2ReadOnlyAccess.
+- Re-ran:
+    aws ec2 describe-instances
+- ✅ Successfully listed EC2 instances.
+
+4. Detached Policy
+- In the console, detached the same policy.
+- Re-tested with CLI:
+    aws ec2 describe-instances
+- ❌ Again received 'AccessDenied' error.
+

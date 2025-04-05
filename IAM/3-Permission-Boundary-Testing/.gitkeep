@@ -1,1 +1,28 @@
- 
+ # IAM Lab 3: Set Permissions Boundary for IAM User
+
+## ✅ Tasks Performed:
+
+### 1. Created Custom Permissions Boundary Policy:
+Policy Name: IAM-Boundary-EC2  
+Action: ec2:DescribeInstances  
+Effect: Allow
+
+### 2. Attached Permissions Boundary to `practice-user`:
+aws iam put-user-permissions-boundary --user-name practice-user --permissions-boundary arn:aws:iam::account-id:policy/IAM-Boundary-EC2
+
+### 3. Verified Boundaries:
+aws iam get-user --user-name practice-user  
+# Confirmed that PermissionsBoundary was attached.
+
+### 4. Tested Permissions:
+aws ec2 describe-instances  ✅ Worked
+aws iam list-users ❌ Access Denied (not allowed by boundary)
+
+### 5. Removed Permissions Boundary:
+aws iam delete-user-permissions-boundary --user-name practice-user //or use console
+
+---
+
+##  Outcome:
+- Learned how Permissions Boundaries restrict user permissions.
+- Saw the difference between policies and boundaries using CLI experiments.

@@ -1,6 +1,4 @@
-Sure! Here's the **step-by-step summary** of what you did in the **Cross-User Access Denial Lab** using AWS IAM and CLI:
 
----
 
 ### 📁 Lab: Cross-User Access Denial (UserA Denied Access to jc's S3 Bucket)
 
@@ -30,9 +28,8 @@ Sure! Here's the **step-by-step summary** of what you did in the **Cross-User Ac
    - No S3 bucket policy allowed UserA  
    - IAM policy did not permit UserA to access `jc11`
 
-6. **Conclusion**:  
+6. 
    - By default, **S3 buckets are private**, and IAM users can't access each other's resources unless explicitly granted.
 
----
 
-Let me know if you'd like to paste this into `.gitkeep`, or want me to give the next lab summary. 
+

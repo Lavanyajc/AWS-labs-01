@@ -18,13 +18,7 @@ This folder contains hands-on labs and mini-projects on AWS IAM. Each lab demons
 4. **Cross-user Access Restriction**  
    Tested scenarios where one IAM user was restricted from accessing resources belonging to another IAM user using deny policies.
 
-5. **Attach & Detach IAM Policies**  
-   Attached policies to users to allow specific actions, then detached them to test access revocation via CLI.
-
-6. **Check Access with CLI**  
-   Used AWS CLI commands (`aws iam list-users`, `aws s3 cp`) to test permissions before and after policy application.
-
-7. **MFA Setup for IAM User**  
+5. **MFA Setup for IAM User**  
    Enabled Multi-Factor Authentication (MFA) using virtual MFA device for a user and verified its working by CLI.
 
 ---

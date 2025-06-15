@@ -90,7 +90,3 @@ You can test the permissions by:
 
 
 
----
-
-Would you like a zipped folder with file structure ready to upload? Or I can help generate a `.gitkeep` and commit message format too.
-```

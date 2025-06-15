@@ -1,6 +1,4 @@
-Great! If you're focusing on **console-only steps**, here’s the corrected and simplified version of **IAM Lab 3 (Permissions Boundary)** with **console-based instructions only**:
 
----
 
 # ✅ IAM Lab 3: Set Permissions Boundary for IAM User (Console Only)
 

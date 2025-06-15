@@ -1,4 +1,7 @@
  # IAM Lab 2: Attaching Policies to IAM Users
+## 🎥 Demo Video
+
+▶️ [Click here to watch the video demo](https://drive.google.com/file/d/1f1hEo_-2643ZNsvw1YlUj2i_E53OLasj/view?usp=sharing)
 
 ## ✅ Tasks Performed:
 

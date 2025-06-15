@@ -1,4 +1,8 @@
 # S3 Bucket Policy Hands-On
+## 🎥 Project Demo
+
+👉 [Click here to watch the demo video](https://drive.google.com/file/d/1JPwZ9Z5G7MG02vqREbII8CWD99W7sx_H/view?usp=sharing)
+
 
 ## Objective: Make bucket or object public using Bucket Policy
 
@@ -18,6 +22,6 @@
   }]
 }
 
-## 🎥 Project Demo
 
-👉 [Click here to watch the demo video](https://drive.google.com/file/d/1JPwZ9Z5G7MG02vqREbII8CWD99W7sx_H/view?usp=sharing)
+
+
